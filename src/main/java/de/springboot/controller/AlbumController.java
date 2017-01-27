@@ -1,6 +1,7 @@
-package controller;
+package de.springboot.controller;
 
-import model.Album;
+import db.service.AlbumService;
+import de.springboot.model.Album;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;

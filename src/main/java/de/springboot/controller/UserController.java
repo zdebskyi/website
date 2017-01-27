@@ -1,6 +1,7 @@
-package controller;
+package de.springboot.controller;
 
-import model.User;
+import db.service.UserService;
+import de.springboot.model.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

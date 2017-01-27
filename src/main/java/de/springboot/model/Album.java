@@ -1,4 +1,4 @@
-package model;
+package de.springboot.model;
 
 /**
  * Created by zdebskyi on 27.01.17.
