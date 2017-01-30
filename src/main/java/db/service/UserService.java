@@ -20,7 +20,6 @@ public class UserService extends OpenHelper implements Service<User> {
                 return new UserDAO(getStmt(), getConnection()).getAll();
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             closeDB();
         }
@@ -36,7 +35,6 @@ public class UserService extends OpenHelper implements Service<User> {
                 return new UserDAO(getStmt(), getConnection()).getById(Integer.parseInt(id), true);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             closeDB();
         }
@@ -51,7 +49,6 @@ public class UserService extends OpenHelper implements Service<User> {
                 return new UserDAO(getStmt(), getConnection()).add(user);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             closeDB();
         }
@@ -66,7 +63,6 @@ public class UserService extends OpenHelper implements Service<User> {
                 new UserDAO(getStmt(), getConnection()).delete(user);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             closeDB();
         }

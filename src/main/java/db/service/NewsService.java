@@ -22,6 +22,8 @@ public class NewsService extends OpenHelper implements Service<News> {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+
         } finally {
             closeDB();
         }
@@ -38,6 +40,7 @@ public class NewsService extends OpenHelper implements Service<News> {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (Exception e) {
         } finally {
             closeDB();
         }
@@ -53,6 +56,7 @@ public class NewsService extends OpenHelper implements Service<News> {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (Exception e) {
         } finally {
             closeDB();
         }
@@ -68,9 +72,10 @@ public class NewsService extends OpenHelper implements Service<News> {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (Exception e) {
         } finally {
             closeDB();
         }
-
     }
-}
+    }
+

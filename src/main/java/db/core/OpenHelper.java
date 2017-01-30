@@ -1,9 +1,8 @@
 package db.core;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import com.mysql.fabric.jdbc.FabricMySQLDriver;
+
+import java.sql.*;
 
 /**
  * Created by zdebskyi on 27.01.17.
@@ -11,6 +10,7 @@ import java.sql.Statement;
 public class OpenHelper {
     Connection connection = null;
     Statement stmt = null;
+    Driver driver;
 
     public Statement getStmt() {
         return stmt;
@@ -23,24 +23,15 @@ public class OpenHelper {
     public Statement connectDB() {
 
         try {
-            Class.forName("org.postgresql.Driver");
-            String nameBD = "zdebskyi";
-            connection = DriverManager
-//                    .getConnection("jdbc:postgresql://xfuzhwmbcdpytz:-50012RYkHCbWnZSvOY3p2PtcC@ec2-54-217-231-152.eu-west-1.compute.amazonaws.com:5432/dfharpin4q0e8s",
-//                            "xfuzhwmbcdpytz", "-50012RYkHCbWnZSvOY3p2PtcC");
-                    .getConnection("jdbc:postgresql://localhost:5432/db" + nameBD,
-                            nameBD, "1111");
-
+            driver = new FabricMySQLDriver();
+            DriverManager.registerDriver(driver);
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql?useSSL=false", "root", "1111");
             connection.setAutoCommit(false);
-
             System.out.println("Opened database successfully");
-
-
             stmt = connection.createStatement();
+            stmt.executeQuery("select * from myDataBase");
+
         } catch (SQLException e) {e.printStackTrace();
-        }
-        catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
         return stmt;
     }
@@ -56,4 +47,6 @@ public class OpenHelper {
             e.printStackTrace();
         }
     }
+
+
 }

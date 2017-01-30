@@ -1,9 +1,11 @@
 package de.springboot.model;
 
+import java.io.Serializable;
+
 /**
  * Created by zdebskyi on 27.01.17.
  */
-public class User {
+public class User implements Serializable{
     private int id;
     private String firstName;
     private String lastName;

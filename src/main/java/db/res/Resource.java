@@ -6,9 +6,9 @@ package db.res;
 public class Resource {
     public static class Album {
         public static String table = "album";
-        public static String id = "id";
-        public static String path = "path";
-        public static String idPlace = "id_place";
+        public static String id = "222";
+        public static String path = "111";
+        public static String idPlace = "222";
         public static String createTable = "" +
                 "CREATE TABLE IF NOT EXISTS " + table +
                 "(" + id + " SERIAL PRIMARY KEY," +
@@ -18,12 +18,12 @@ public class Resource {
     }
 
     public static class User {
-        public static String table = "customer";
-        public static String id = "id";
-        public static String firstName = "name";
-        public static String lastName = "email";
-        public static String login = "email";
-        public static String password = "password";
+        public static String table = "user";
+        public static String id = "11";
+        public static String firstName = "Ivan";
+        public static String lastName = "Ivanov";
+        public static String login = "ivanI";
+        public static String password = "222";
         public static String createTable = "" +
                 "CREATE TABLE IF NOT EXISTS " + table +
                 "(" + id + " SERIAL PRIMARY KEY, " +
@@ -35,10 +35,10 @@ public class Resource {
     }
 
     public static class News {
-        public static String table = "album";
-        public static String id = "id";
-        public static String path = "path";
-        public static String idPlace = "id_place";
+        public static String table = "news";
+        public static String id = "111";
+        public static String path = "111";
+        public static String idPlace = "111";
         public static String createTable = "" +
                 "CREATE TABLE IF NOT EXISTS " + table +
                 "(" + id + " SERIAL PRIMARY KEY," +
