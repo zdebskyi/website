@@ -36,9 +36,9 @@ public class DBPostSql {
 
     public void initInsert() {
 
-        new UserService().add(new User(11, "Ivan", "Ivanov", "ivanI", "222"));
-        new AlbumService().add(new Album(222,"111",222));
-        new NewsService().add(new News(111, "111", 111));
+        new UserService().add(new User(0, "Ivan", "Ivanov", "ivanI", "222"));
+        new AlbumService().add(new Album(0,"111",222));
+        new NewsService().add(new News(0, "111", 111));
 
 
     }

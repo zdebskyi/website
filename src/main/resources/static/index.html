@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainApp" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Title</title>
+
+    <!--dependencies-->
+    <script src="libs/angular.min.js"></script>
+    <script src="libs/ui-router.js"></script>
+
+    <!-- Angular Material Javascript now available via Google CDN; version 1.0.7 used here -->
+    <link rel="stylesheet" href="style/main.css"></link>
+
+
+
+    <!--javascript file-->
+    <script src="app/app.js"></script>
+    <script src="app/routs.js"></script>
+    <script src="app/album.ctrl.js"></script>
+
+
+</head>
+<body>
+<div ui-view=""></div>
+</body>
+</html>

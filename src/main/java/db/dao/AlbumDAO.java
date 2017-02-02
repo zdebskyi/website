@@ -28,11 +28,19 @@ public class AlbumDAO implements DAO<Album> {
     public List<Album> getAll() {
         List<Album> albums = new ArrayList<>();
         try {
-            ResultSet rs = statement.executeQuery("SELECT * FROM " + Resource.Album.table + ";");
+            String sql = "CREATE TABLE IF NOT EXISTS album (iD INT PRIMARY KEY NOT NULL, filePath TEXT, idPlace INT)";
+            statement.executeUpdate(sql);
+
+
+
+            String sqlInsert = "insert into album (id, filePath, idPlace) values (1,'/file/path', 2)";
+
+            statement.executeUpdate(sqlInsert);
+            ResultSet rs = statement.executeQuery("SELECT * FROM album");
             while (rs.next()) {
-                int id = rs.getInt(Resource.Album.id);
-                String path = rs.getString(Resource.Album.path);
-                int idP = rs.getInt(Resource.Album.idPlace);
+                int id = rs.getInt("id");
+                String path = rs.getString("filePath");
+                int idP = rs.getInt("idPlace");
 
                 albums.add(new Album(id, path, idP));
             }
@@ -40,6 +48,7 @@ public class AlbumDAO implements DAO<Album> {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println(albums);
         return albums;
     }
 

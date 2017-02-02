@@ -1,9 +1,11 @@
 package de.springboot.model;
 
+import java.io.Serializable;
+
 /**
  * Created by zdebskyi on 27.01.17.
  */
-public class Album {
+public class Album implements Serializable{
     private int id;
     private String path;
     private int idPlace;

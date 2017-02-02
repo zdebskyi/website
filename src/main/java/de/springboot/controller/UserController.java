@@ -29,7 +29,7 @@ public class UserController {
 
     @RequestMapping(value = "/add/user", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<User> add(@RequestBody final User entity) {
+    public ResponseEntity<User> addUser(@RequestBody final User entity) {
         int res = new UserService().add(entity);
         if (res != 0)
             return new ResponseEntity<>(entity, HttpStatus.OK);

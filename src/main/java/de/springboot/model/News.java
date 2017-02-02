@@ -1,9 +1,11 @@
 package de.springboot.model;
 
+import java.io.Serializable;
+
 /**
  * Created by zdebskyi on 27.01.17.
  */
-public class News {
+public class News implements Serializable{
 
     private int id;
     private String path;

@@ -18,7 +18,7 @@ public class AlbumService extends OpenHelper implements Service<Album> {
         try {
             connectDB();
             if (!getStmt().isClosed()) {
-                return new AlbumDAO((java.sql.Statement) getStmt(), getConnection()).getAll();
+                return new AlbumDAO( getStmt(), getConnection()).getAll();
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -34,7 +34,7 @@ public class AlbumService extends OpenHelper implements Service<Album> {
         try {
             connectDB();
             if (!getStmt().isClosed()) {
-                return new AlbumDAO((java.sql.Statement) getStmt(), getConnection()).getById(Integer.parseInt(id), true);
+                return new AlbumDAO(getStmt(), getConnection()).getById(Integer.parseInt(id), true);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -49,7 +49,7 @@ public class AlbumService extends OpenHelper implements Service<Album> {
         try {
             connectDB();
             if (!getStmt().isClosed()) {
-                return new AlbumDAO((java.sql.Statement) getStmt(), getConnection()).add(album);
+                return new AlbumDAO(getStmt(), getConnection()).add(album);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -64,7 +64,7 @@ public class AlbumService extends OpenHelper implements Service<Album> {
         try {
             connectDB();
             if (!getStmt().isClosed()) {
-                new AlbumDAO((java.sql.Statement) getStmt(), getConnection()).delete(album);
+                new AlbumDAO(getStmt(), getConnection()).delete(album);
             }
         } catch (SQLException e) {
             e.printStackTrace();

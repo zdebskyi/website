@@ -18,7 +18,7 @@ public class NewsService extends OpenHelper implements Service<News> {
         try {
             connectDB();
             if (!getStmt().isClosed()) {
-                return new NewsDAO((java.sql.Statement) getStmt(), getConnection()) .getAll();
+                return new NewsDAO(getStmt(), getConnection()) .getAll();
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -36,7 +36,7 @@ public class NewsService extends OpenHelper implements Service<News> {
         try {
             connectDB();
             if (!getStmt().isClosed()) {
-                return new NewsDAO((java.sql.Statement) getStmt(), getConnection()).getById(Integer.parseInt(id), true);
+                return new NewsDAO(getStmt(), getConnection()).getById(Integer.parseInt(id), true);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -52,7 +52,7 @@ public class NewsService extends OpenHelper implements Service<News> {
         try {
             connectDB();
             if (!getStmt().isClosed()) {
-                return new NewsDAO((java.sql.Statement) getStmt(), getConnection()).add(news);
+                return new NewsDAO(getStmt(), getConnection()).add(news);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -68,7 +68,7 @@ public class NewsService extends OpenHelper implements Service<News> {
         try {
             connectDB();
             if (!getStmt().isClosed()) {
-                new NewsDAO((java.sql.Statement) getStmt(), getConnection()).delete(news);
+                new NewsDAO(getStmt(), getConnection()).delete(news);
             }
         } catch (SQLException e) {
             e.printStackTrace();
