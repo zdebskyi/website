@@ -15,6 +15,10 @@ public class Album implements Serializable{
         this.path = path;
         this.idPlace = idPlace;
     }
+    public Album (String path, int idPlace){
+        this.path=path;
+        this.idPlace=idPlace;
+    }
 
     public int getId() {
         return id;
