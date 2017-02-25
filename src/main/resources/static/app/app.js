@@ -1,5 +1,5 @@
 (function () {
-    angular.module("mainApp", [ 'ui.router']);
+    angular.module("mainApp", [ 'ui.router', 'naif.base64']);
 
 
 })();
