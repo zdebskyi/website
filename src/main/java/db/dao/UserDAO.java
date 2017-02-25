@@ -27,13 +27,17 @@ public class UserDAO implements DAO<User> {
     public List<User> getAll() {
         List<User> users = new ArrayList<>();
         try {
-            ResultSet rs = statement.executeQuery("SELECT * FROM " + Resource.User.table + ";");
+            String sql = "CREATE TABLE IF NOT EXISTS user (iD INT PRIMARY KEY NOT NULL, firstName TEXT, lastName TEXT, login TEXT, password TEXT)";
+            statement.executeUpdate(sql);
+            String sqlInsert = "insert into user (id, firstName, lastName, login, password) values (1,'/file/firstName', '/file/lastName', '/file/login', '/file/password')";
+            statement.executeUpdate(sqlInsert);
+            ResultSet rs = statement.executeQuery("SELECT * FROM user");
             while (rs.next()) {
-                int id = rs.getInt(Resource.User.id);
-                String firstName = rs.getString(Resource.User.firstName);
-                String lastName = rs.getString(Resource.User.lastName);
-                String login = rs.getString(Resource.User.login);
-                String password = rs.getString(Resource.User.password);
+                int id = rs.getInt("id");
+                String firstName = rs.getString("firstName");
+                String lastName = rs.getString("lastName");
+                String login = rs.getString("login");
+                String password = rs.getString("password");
 
                 users.add(new User(id, firstName, lastName, login, password));
             }
@@ -41,6 +45,7 @@ public class UserDAO implements DAO<User> {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println(users);
         return users;
     }
 

@@ -28,11 +28,18 @@ public class NewsDAO implements DAO<News> {
     public List<News> getAll() {
         List<News> newss = new ArrayList<>();
         try {
-            ResultSet rs = statement.executeQuery("SELECT * FROM " + Resource.News.table + ";");
+            String sql = "CREATE TABLE IF NOT EXISTS news (iD INT PRIMARY KEY NOT NULL, filePath TEXT, idPlace INT)";
+            statement.executeUpdate(sql);
+
+            String sqlInsert = "insert into news (id, filePath, idPlace) values (1,'/file/path', 2)";
+
+            statement.executeUpdate(sqlInsert);
+            ResultSet rs = statement.executeQuery("SELECT * FROM news");
+
             while (rs.next()) {
-                int id = rs.getInt(Resource.News.id);
-                String path = rs.getString(Resource.News.path);
-                int idP = rs.getInt(Resource.News.idPlace);
+                int id = rs.getInt("id");
+                String path = rs.getString("filePath");
+                int idP = rs.getInt("idPlace");
 
                 newss.add(new News(id, path, idP));
             }
@@ -40,11 +47,12 @@ public class NewsDAO implements DAO<News> {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println(newss);
         return newss;
     }
 
     public List<News> getListById(int idPlace, boolean close) {
-        List<News> images = new ArrayList<>();
+        List<News> newss = new ArrayList<>();
         try {
             ResultSet rs = statement.executeQuery("SELECT * FROM " + Resource.News.table + " WHERE " + Resource.News.idPlace + " = " + idPlace + ";");
             while (rs.next()) {
@@ -52,14 +60,14 @@ public class NewsDAO implements DAO<News> {
                 String path = rs.getString(Resource.News.path);
                 int idP = rs.getInt(Resource.News.idPlace);
 
-                images.add(new News(id, path, idP));
+                newss.add(new News(id, path, idP));
             }
             if (close)
                 rs.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return images;
+        return newss;
     }
 
     @Override

@@ -20,11 +20,17 @@
                     controllerAs: '$news',
                     templateUrl: 'templates/news.html'
                                 })
-                          .state('main', {
+                .state('main', {
                     url: '/',
                     controller: 'MainController',
                     controllerAs: '$main',
                     templateUrl: 'templates/main.html'
+})
+                .state('user', {
+                    url: '/user',
+                    controller: 'UserController',
+                    controllerAs: '$user',
+                    templateUrl: 'templates/user.html'
 })
 
       })
